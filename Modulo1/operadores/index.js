@@ -69,3 +69,6 @@ console.log (" 100 milhas equivalem a ", resultadoMilhaParaMetro, "metros")
 console.log ("50 pés equivalem a ", resultadoPesParaMetro, "metros")
 console.log ("103.56 galões equivalem a", resultadoGaloesEmLitros, "litros")
 console.log ("450 xícaras equivalem a ", resultadoXicarasParaLitros, "litros")
+ 
+//Exercício escrito
+//1-False, False, True, Bolean 2- o primeiro número virá seguiro do segundo 3-
