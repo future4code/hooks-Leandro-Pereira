@@ -1,0 +1,2 @@
+#Aprendizado da semana
+    Durante essas duas semanas aprendemos a trabalhar com **Terminal, Git e Github**. Conhecemos oque é um terminal, como utilizá-lo, aprendemos sobre a ferramenta git e como funciona a plataforma github. Descobrimos como fazer uma pr,como enviar os trabalhos por meio deste entre outras funcionalidades do Git e Github.
