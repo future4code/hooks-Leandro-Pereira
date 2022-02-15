@@ -52,8 +52,11 @@ function imprimeInformacoesUsuario() {
 // EXERCÍCIO 05
 function imprimeTresCoresFavoritas() {
   // Escreva uma função que pergunta ao usuário suas três cores favoritas e imprime no console um array que contenha essas três cores.
-
-
+const cores = ["Azul", "Amarelo", "Vermelho"]
+const corFavorita = prompt ("Qual sua cor favorita?")
+const corFavorita1 = prompt ("Qual sua cor favorita?")
+const corFavorita2 = prompt ("Qual sua cor favorita?")
+console.log (cores) 
 }
 
 // EXERCÍCIO 06
