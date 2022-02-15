@@ -10,7 +10,11 @@ console.log (frase)
 const comidasFavoritas = ["Sopa de Mandioca", "Feijoada", "Lasanha", "Pizza", "Strogonoff"]
 const comidaFavoritaUsuario = prompt ('Qual sua comida favorita?')
 console.log (comidasFavoritas)
-console.log ("Essas são as minhas comidas preferidas:", comidasFavoritas[0],comidasFavoritas[1],comidasFavoritas[2],comidasFavoritas [3],comidasFavoritas[4])
+console.log ("Essas são as minhas comidas preferidas:", comidasFavoritas[0])
+console.log (comidasFavoritas[1])
+console.log (comidasFavoritas[2])
+console.log (comidasFavoritas[3])
+console.log (comidasFavoritas[4])
 
 //a) Crie um array vazio e guarde-o em uma variável, chamada listaDeTarefas
 const listaDeTarefas= []
