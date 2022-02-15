@@ -13,9 +13,3 @@ console.log (comidasFavoritas)
 console.log ("Essas são as minhas comidas preferidas:", comidasFavoritas[0],comidasFavoritas[1],comidasFavoritas[2],comidasFavoritas [3],comidasFavoritas[4])
 
 //a) Crie um array vazio e guarde-o em uma variável, chamada listaDeTarefas
-const listaDeTarefas = []
-const tarefas = prompt ("Insira uma tarefa")
-const tarefas1 = prompt ("Insira uma tarefa")
-const tarefas2 = prompt ("Insira uma tarefa")
-
-console.log(listaDeTarefas)
