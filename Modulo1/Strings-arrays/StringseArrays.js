@@ -15,6 +15,8 @@ console.log (comidasFavoritas[1])
 console.log (comidasFavoritas[2])
 console.log (comidasFavoritas[3])
 console.log (comidasFavoritas[4])
+comidasFavoritas[1] = comidaFavoritaUsuario
+console.log (comidasFavoritas)
 
 //a) Crie um array vazio e guarde-o em uma variável, chamada listaDeTarefas
 //const listaDeTarefas= []
