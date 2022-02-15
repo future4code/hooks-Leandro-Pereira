@@ -6,7 +6,7 @@ const frase = `O email ${email} foi cadastrado com sucesso. Seja bem vindo (a), 
 console.log (frase)
 //Faça um programa que contenha um array com 5 das suas comidas preferidas, armazenado em uma variável. Em seguida, siga os passos:
 //b) Imprima no console a mensagem "Essas são as minhas comidas preferidas: ", seguida por cada uma das comidas, uma embaixo da outra.
-//c) Aqui vai um desafio: pergunte ao usuário uma comida preferida. Troque a segunda comida da sua lista pela inserida pelo usuário. Imprima no consolea nova lista
+//c) Aqui vai um desafio: pergunte ao usuário uma comida preferida. Troque a segunda comida da sua lista pela inserida pelo usuário. Imprima no console a nova lista
 const comidasFavoritas = ["Sopa de Mandioca", "Feijoada", "Lasanha", "Pizza", "Strogonoff"]
 const comidaFavoritaUsuario = prompt ('Qual sua comida favorita?')
 console.log (comidasFavoritas)
@@ -17,4 +17,5 @@ console.log (comidasFavoritas[3])
 console.log (comidasFavoritas[4])
 
 //a) Crie um array vazio e guarde-o em uma variável, chamada listaDeTarefas
-const listaDeTarefas= []
+//const listaDeTarefas= []
+
