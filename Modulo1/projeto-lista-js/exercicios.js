@@ -44,9 +44,10 @@ return peso / (altura*altura)
 function imprimeInformacoesUsuario() {
   // Escreva uma função que pede ao usuário seu nome, sua idade e seu email (nessa ordem), e imprime no console uma mensagem como a seguinte:
   // "Meu nome é NOME, tenho IDADE anos, e o meu email é EMAIL."
-
- 
-
+const nome = prompt ("Qual seu nome?")
+const idade = prompt ("Qual sua idade?")
+const email = prompt ("Qual seu email?")
+console.log (`Meu nome é ${nome}, tenho ${idade} anos, e o meu email é ${email}.`)
 } 
 
 // EXERCÍCIO 05
@@ -90,7 +91,7 @@ return (array[array.length -1])
 // EXERCÍCIO 11
 function trocaPrimeiroEUltimo(array) {
   // Escreva uma função que recebe um array e retorna um array com o primeiro e o último elemento trocados.
- 
+  
 
 }
 
