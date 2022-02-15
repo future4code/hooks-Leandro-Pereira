@@ -52,11 +52,9 @@ function imprimeInformacoesUsuario() {
 // EXERCÍCIO 05
 function imprimeTresCoresFavoritas() {
   // Escreva uma função que pergunta ao usuário suas três cores favoritas e imprime no console um array que contenha essas três cores.
-const cores = ["Azul", "Amarelo", "Vermelho"]
-const corFavorita = prompt ("Qual sua cor favorita?")
-const corFavorita1 = prompt ("Qual sua cor favorita?")
-const corFavorita2 = prompt ("Qual sua cor favorita?")
-console.log (cores) 
+  
+   
+   
 }
 
 // EXERCÍCIO 06
@@ -92,11 +90,12 @@ return (array[array.length -1])
 // EXERCÍCIO 11
 function trocaPrimeiroEUltimo(array) {
   // Escreva uma função que recebe um array e retorna um array com o primeiro e o último elemento trocados.
-console.log (array.length)
+ 
+
 }
 
 // EXERCÍCIO 12
-function checaIgualdadeDesconsiderandoCase(string1, string2) {
+function checaIgualdadeDesconsiderandoCase() {
   // Escreva uma função que recebe duas strings e retorna um booleano (true ou false) indicando se elas são iguais, desconsiderando letras maiúsculas ou minúsculas.
 
 
@@ -109,7 +108,7 @@ function checaRenovacaoRG() {
 }
 
 // EXERCÍCIO 14
-function checaAnoBissexto(ano) {
+function checaAnoBissexto() {
   // implemente sua lógica aqui
 
 }
