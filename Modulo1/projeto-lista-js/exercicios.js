@@ -53,9 +53,10 @@ console.log (`Meu nome é ${nome}, tenho ${idade} anos, e o meu email é ${email
 // EXERCÍCIO 05
 function imprimeTresCoresFavoritas() {
   // Escreva uma função que pergunta ao usuário suas três cores favoritas e imprime no console um array que contenha essas três cores.
-  
-   
-   
+  const cor = prompt ("Qual sua cor favorita?")
+  const cor1 = prompt ("Qual sua cor favorita?")
+  const cor2 = prompt ("Qual sua cor favorita?")
+    console.log ([cor, cor1, cor2])
 }
 
 // EXERCÍCIO 06
