@@ -19,5 +19,17 @@ comidasFavoritas[1] = comidaFavoritaUsuario
 console.log (comidasFavoritas)
 
 //a) Crie um array vazio e guarde-o em uma variável, chamada listaDeTarefas
-//const listaDeTarefas= []
+//b) Pergunte ao usuário 3 tarefas que ele precise realizar no dia e armazene-as, uma por uma, no array
+// Peça ao usuário que digite o índice de uma tarefa que ele já realizou: 0, 1 ou 2 
+const listaDeTarefas = []
+const tarefas = prompt ("insira uma tarefa")
+listaDeTarefas.push(tarefas)
+const tarefas1 = prompt ("insira uma tarefa")
+listaDeTarefas.push(tarefas1)
+const tarefas2 = prompt ("insira uma tarefa")
+listaDeTarefas.push(tarefas2) 
+console.log(listaDeTarefas)
+const digiteUmaTarefa = prompt ("qual tarefa já foram feitas?")
+listaDeTarefas.splice(Number(digiteUmaTarefa),1)
+console.log(listaDeTarefas)
 
