@@ -101,6 +101,7 @@ function checaIgualdadeDesconsiderandoCase() {
   // Escreva uma função que recebe duas strings e retorna um booleano (true ou false) indicando se elas são iguais, desconsiderando letras maiúsculas ou minúsculas.
 
 
+
 }
 
 // EXERCÍCIO 13
