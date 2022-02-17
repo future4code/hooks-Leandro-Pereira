@@ -92,7 +92,11 @@ return (array[array.length -1])
 // EXERCÍCIO 11
 function trocaPrimeiroEUltimo(array) {
   // Escreva uma função que recebe um array e retorna um array com o primeiro e o último elemento trocados.
-  
+  const primeiro = array [0]
+  const ultimo = array[array.length -1]
+  array[0] = ultimo
+  array[array.length-1] = primeiro
+  return array
 
 }
 
