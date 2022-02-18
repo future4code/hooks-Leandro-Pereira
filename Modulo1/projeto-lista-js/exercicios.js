@@ -103,10 +103,6 @@ function trocaPrimeiroEUltimo(array) {
 // EXERCÍCIO 12
 function checaIgualdadeDesconsiderandoCase() {
   // Escreva uma função que recebe duas strings e retorna um booleano (true ou false) indicando se elas são iguais, desconsiderando letras maiúsculas ou minúsculas.
-const primeira = string.toUpperCase()
-const segunda = string2.toUpperCase()
-
-return string === string2
 
 
 }
