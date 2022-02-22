@@ -41,8 +41,8 @@ const pessoa1 = {
 
 
 function array(array) {
-    newArray = [{ nome: "Leandro", idade: 36, profissao: "Oficial administrativo" },
-    { nome: "Sandra", idade: 40, profissao: "Técnica de enfermagem" }]
+    newArray = []
+    newArray.push(pessoa), newArray.push(pessoa1)
     console.log(newArray)
     return array
 }
@@ -53,21 +53,25 @@ array(pessoa)
 
 const carrinho = []
 
-const frutas = {
+const frutas00 = {
     nome: "Abacate",
     disponibilidade: true
 }
 
-const frutas1 = {
+const frutas01 = {
     nome: "Melância",
-    disponibilidade: false
+    disponibilidade: true
 }
 
-const frutas1 = {
+const frutas02 = {
     nome: "Pêra",
     disponibilidade: true
 }
 
-function frutas (frutas){
-    
+function frutas(fruta) {
+    carrinho.push(frutas00), carrinho.push(frutas01), carrinho.push(frutas02)
+
+    return fruta
 }
+frutas(carrinho)
+console.log(carrinho)
