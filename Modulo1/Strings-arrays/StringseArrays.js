@@ -6,7 +6,10 @@ const frase = `O email ${email} foi cadastrado com sucesso. Seja bem vindo (a), 
 console.log (frase)
 //Faça um programa que contenha um array com 5 das suas comidas preferidas, armazenado em uma variável. Em seguida, siga os passos:
 //b) Imprima no console a mensagem "Essas são as minhas comidas preferidas: ", seguida por cada uma das comidas, uma embaixo da outra.
+
+ funcoes
  semana2-aula7
+ master
 //c) Aqui vai um desafio: pergunte ao usuário uma comida preferida. Troque a segunda comida da sua lista pela inserida pelo usuário. Imprima no consolea nova lista
 const comidasFavoritas = ["Sopa de Mandioca", "Feijoada", "Lasanha", "Pizza", "Strogonoff"]
 const comidaFavoritaUsuario = prompt ('Qual sua comida favorita?')
@@ -42,4 +45,8 @@ const digiteUmaTarefa = prompt ("qual tarefa já foram feitas?")
 listaDeTarefas.splice(Number(digiteUmaTarefa),1)
 console.log(listaDeTarefas)
 
+ funcoes
+ master
+
 master
+ master
