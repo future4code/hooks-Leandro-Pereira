@@ -1,4 +1,4 @@
-/**
+/* *
  * EXEMPLO DE UTILIZAÇÃO DA 'comprarCarta'
  * 
  * 
@@ -8,6 +8,4 @@
     console.log(carta.valor) // imprime o valor da carta (um número). Exemplo: 10 (dado que "K" vale 10)
  * 
  * 
- * 
- */
-
+ *  */
