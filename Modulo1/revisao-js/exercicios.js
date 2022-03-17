@@ -101,13 +101,13 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 function retornaSegundoMaiorESegundoMenor(array) {
   const novoArray = [];
 
-
-  
- return novoArray
+  return novoArray;
 }
 
 // EXERCÍCIO 11
-function retornaChamadaDeFilme(filme) {}
+function retornaChamadaDeFilme(filme) {
+  return `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${filme.atores.join([separador = `, `])}.`
+}
 
 // EXERCÍCIO 12
 function retornaPessoaAnonimizada(pessoa) {}
