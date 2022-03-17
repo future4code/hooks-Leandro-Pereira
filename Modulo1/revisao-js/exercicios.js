@@ -74,13 +74,37 @@ function retornaObjetoEntreDoisNumeros(num1, num2) {
 }
 
 // EXERCÍCIO 08
-function retornaNPrimeirosPares(n) {}
+function retornaNPrimeirosPares(n) {
+  let firstPairs = [];
+  for (let index = 0; firstPairs.length < n; index += 2) {
+    firstPairs.push(index);
+  }
+
+  return firstPairs;
+}
 
 // EXERCÍCIO 09
-function classificaTriangulo(ladoA, ladoB, ladoC) {}
+function classificaTriangulo(ladoA, ladoB, ladoC) {
+  {
+    if (ladoA == ladoB && ladoB == ladoC && ladoC == ladoA) {
+      return "Equilátero";
+    }
+    if (ladoA !== ladoB && ladoB !== ladoC && ladoC !== ladoA) {
+      return "Escaleno";
+    } else {
+      return "Isósceles";
+    }
+  }
+}
 
 // EXERCÍCIO 10
-function retornaSegundoMaiorESegundoMenor(array) {}
+function retornaSegundoMaiorESegundoMenor(array) {
+  const novoArray = [];
+
+
+  
+ return novoArray
+}
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {}
@@ -89,13 +113,52 @@ function retornaChamadaDeFilme(filme) {}
 function retornaPessoaAnonimizada(pessoa) {}
 
 // EXERCÍCIO 13A
-function retornaPessoasAutorizadas(pessoas) {}
+function retornaPessoasAutorizadas(pessoas) {
+  const idadeMinima = 14;
+  const idadeMaxima = 60;
+  const alturaMinima = 1.5;
+  const pessoasAutorizada = pessoas.filter((item) => {
+    return (
+      item.altura >= alturaMinima &&
+      item.idade > idadeMinima &&
+      item.idade < idadeMaxima
+    );
+  });
+
+  return pessoasAutorizada;
+}
 
 // EXERCÍCIO 13B
-function retornaPessoasNaoAutorizadas(pessoas) {}
+function retornaPessoasNaoAutorizadas(pessoas) {
+  const alturaMinima = 1.5;
+  const idadeMinima = 14;
+  const idadeMaxima = 60;
+  let pessoaNaoAutorizadas = pessoas.filter((item) => {
+    return (
+      item.altura < alturaMinima ||
+      item.idade <= idadeMinima ||
+      item.idade > idadeMaxima
+    );
+  });
+
+  return pessoaNaoAutorizadas;
+}
 
 // EXERCÍCIO 14
-function retornaContasComSaldoAtualizado(contas) {}
+function retornaContasComSaldoAtualizado(contas) {
+  for (;;) {
+    let contador = 0;
+    if (contador < contas.length) {
+      let compras = contas[contador].compras;
+      let soma = compras.reduce((prev, compras) => prev + compras, 0);
+      contas[contador].saldoTotal = contas[contador].saldoTotal - soma;
+      contas[contador].compras = [];
+      contador++;
+    }
+
+    return contas;
+  }
+}
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {}
