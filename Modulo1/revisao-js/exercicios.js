@@ -107,7 +107,7 @@ function retornaSegundoMaiorESegundoMenor(array) {
   });
   segundoMaiorESegundoMenor.push(arrayOrdenado[arrayOrdenado.length - 2]);
   segundoMaiorESegundoMenor.push(arrayOrdenado[1]);
-  return segundoMaiorESegundoMenor
+  return segundoMaiorESegundoMenor;
 }
 
 // EXERCÍCIO 11
