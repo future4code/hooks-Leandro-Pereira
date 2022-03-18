@@ -99,18 +99,31 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
-  const novoArray = [];
-
-  return novoArray;
+  const segundoMaiorESegundoMenor = [];
+  const arrayOrdenado = array.sort((a, b) => {
+    if (a > b) return 1;
+    if (a < b) return -1;
+    return 0;
+  });
+  segundoMaiorESegundoMenor.push(arrayOrdenado[arrayOrdenado.length - 2]);
+  segundoMaiorESegundoMenor.push(arrayOrdenado[1]);
+  return segundoMaiorESegundoMenor
 }
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
-  return `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${filme.atores.join([separador = `, `])}.`
+  return `Venha assistir ao filme ${filme.nome}, de ${
+    filme.ano
+  }, dirigido por ${filme.diretor} e estrelado por ${filme.atores.join([
+    (separador = `, `),
+  ])}.`;
 }
 
 // EXERCÍCIO 12
-function retornaPessoaAnonimizada(pessoa) {}
+function retornaPessoaAnonimizada(pessoa) {
+  const anonimous = { ...pessoa, nome: "ANÔNIMO" };
+  return anonimous;
+}
 
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
