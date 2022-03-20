@@ -174,7 +174,20 @@ function retornaContasComSaldoAtualizado(contas) {
 }
 
 // EXERCÍCIO 15A
-function retornaArrayOrdenadoAlfabeticamente(consultas) {}
+function retornaArrayOrdenadoAlfabeticamente(consultas) {
+  consultas.sort((a, b) => {
+    if (a.nome < b.nome) {
+      return -1;
+    }
+    if (a.nome > b.nome) {
+      return 1;
+    }
+    return 0;
+  });
+  return consultas;
+}
 
 // EXERCÍCIO 15B
-function retornaArrayOrdenadoPorData(consultas) {}
+function retornaArrayOrdenadoPorData(consultas) {
+ 
+}
