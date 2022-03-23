@@ -1,0 +1,7 @@
+```function calculaSalario(qtdeCarrosVendidos, valorTotalVendas) {
+const salarioFixo = 2000
+const quantidade = 100 * qtdeCarrosVendidos
+const valorTotal = valorTotalVendas * 0.05
+const total = salarioFixo + quantidade + valorTotal
+return total
+}```
