@@ -1,7 +1,18 @@
+Exercício JS
+exercício 01
 ```function calculaSalario(qtdeCarrosVendidos, valorTotalVendas) {
 const salarioFixo = 2000
 const quantidade = 100 * qtdeCarrosVendidos
 const valorTotal = valorTotalVendas * 0.05
 const total = salarioFixo + quantidade + valorTotal
 return total
+}```
+
+exercício 02
+```function calculaPrecoTotal(quantidade) {
+if(quantidade < 12) {
+  return quantidade * 1.3
+  }else{
+  return quantidade * 1
+}
 }```
