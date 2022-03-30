@@ -1,5 +1,5 @@
 // Insira nome e idade
-const nome = prompt ("Qual seu nome?")
+/* const nome = prompt ("Qual seu nome?")
 const idade = prompt ("Qual sua Idade?")
 console.log (nome, idade)
 console.log (typeof nome, typeof idade)
@@ -34,6 +34,26 @@ console.log (salarioDiario/horasTrabalhadas, ("por hora"))
 let n1 = 10
 let n2 = 25
 console.log (n1 + n2, n1 * n2)
-
+ */
 // Interpretação lógica respostas: 1. Serão apresentados os valores (10) e (10, 5) 2. Todos os valores serão iguais a (10) 3. No terceiro exercício serão calculados os valores para hora trabalhada.
 
+/* const insiraNumero = Number(prompt("Insira um número"));
+function primeNumbers(num) {
+  let numbers = new Array();
+  for (var i = 0; i <= num; i++) {
+    if (isPrime(i)) {
+      numbers.push(i);
+    }
+  }
+  return numbers;
+}
+function isPrime(num) {
+  for (let i = 2; i < num; i++)
+    if (num % i === 0) {
+      return false;
+    }
+  return num > 1;
+}
+console.log(primeNumbers(insiraNumero));
+ */
+//JavaScript
