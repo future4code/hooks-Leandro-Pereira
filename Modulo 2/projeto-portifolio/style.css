@@ -16,12 +16,10 @@ header {
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
 }
 
-#titulo {
-    flex-direction: column;
-}
+
 li{
     display:inline-block;
     margin: 20px;
@@ -31,7 +29,7 @@ a{
     color:black;
 }
 
-a:hover{
+#link a:hover{
     color:white;
     background-color: red;
     transition: .04s all;
@@ -43,6 +41,7 @@ a:hover{
 h1{
     font-weight: 200;
     color: black;
+    font-size: 40px;
 }
 
 main{
