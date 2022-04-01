@@ -2,13 +2,3 @@
     margin:0;
     padding:0;
 }
-header {
-    display:flex;
-    flex-direction:row;
-    align-items:start;
-    justify-content:space-between;
-}
-li{
-    display:inline-block;
-    margin:20px;
-}
