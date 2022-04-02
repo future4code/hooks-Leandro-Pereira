@@ -1,0 +1,20 @@
+*{
+    margin:0;
+    padding: 0;
+}
+header{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    background-color:red;
+}
+
+.display a{
+    display: inline-block;
+    padding: 20px;
+}
+footer{
+    text-align: center;
+    background-color:red;
+}
