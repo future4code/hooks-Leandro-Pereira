@@ -7,13 +7,13 @@
      flex-direction: row;
      justify-content: space-between;
      align-items: start;
-     background-color:black;
-     color:white;
+     background-color:mediumvioletred;
+     color:black;
  }
 
 
  .display a{
-     color:white;
+     color:black;
      display: inline-block;
      padding: 20px;
  }
