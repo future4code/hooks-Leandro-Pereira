@@ -1,0 +1,35 @@
+*{
+    margin:0;
+    padding:0;
+}
+ 
+body{
+    background-color:darkred;
+}
+
+header{
+    background-color:orange;
+    display:flex;
+    justify-content:space-between;
+    margin: 5px;
+    padding: 10px;
+}
+
+main{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+
+button{
+    width:10%;
+}
+
+button:hover{
+    background-color:aqua;
+}
+
+footer{
+    text-align:center;
+    background-color:gray;
+}
