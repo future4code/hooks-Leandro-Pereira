@@ -1,0 +1,44 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+header{
+    background-color:mediumvioletred;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+main{
+    background-color:#f2d0e0;
+    display:grid;
+}
+
+nav{
+    display: flex;      
+}
+
+article{
+    background-color:white;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2,1fr);
+    justify-items: end;
+}
+
+
+
+.diminuir-tamanho{
+    width:1%
+    
+}
+  
+#diminuir-foto{
+    width:20%;
+}
+
+footer{
+    background-color:mediumvioletred;
+    text-align:center;                                                                                                       
+}
