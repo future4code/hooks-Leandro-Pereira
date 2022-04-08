@@ -4,7 +4,7 @@
 }
  
 body{
-    background-color:darkblue;
+    background-color:darkred;
 }
 
 @media screen and (max-device-width:480px){
@@ -35,7 +35,8 @@ padding: 10px;
 }
 
 button{
-    width:10%;
+    width:20%;
+    margin-right: 10px;
 }
 
 button:hover{
