@@ -7,10 +7,13 @@ body{
     background-color:darkblue;
 }
 
-@media screen and (max-width:480){
-    body {background-color:black;
+@media screen and (max-device-width:480px){
+   main{
+       display:flex;
+    flex-direction:column;
 
-    }
+      
+   }
 }
 
 header{
@@ -22,10 +25,14 @@ header{
 }
 
 main{
-    display:grid;
-    grid-template-columns: repeat(4, 1fr);
+    display:flex;
+   flex-wrap: wrap;
 }
 
+.separar{
+padding: 10px;
+
+}
 
 button{
     width:10%;
