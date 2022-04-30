@@ -19,6 +19,8 @@ export const Header = styled.div`
 `
 
 export const MessageContainer = styled.div`
+  display:flex;
+  flex-direction: column-reverse;
   flex-grow:1;
 `
 

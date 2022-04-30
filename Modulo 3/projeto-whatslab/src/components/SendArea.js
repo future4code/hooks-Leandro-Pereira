@@ -32,6 +32,7 @@ class SendArea extends React.Component {
       text: this.state.inputText
     });
     this.setState({ messages: newMessage });
+    this.setState({ inputSender: "", inputText: ""}); 
   };
 
   render() {
@@ -56,7 +57,7 @@ class SendArea extends React.Component {
             onChange={this.onChangeInputSender}
           />
           <InputMessage 
-          vslue={this.state.inputText}
+          value={this.state.inputText}
           onChange={this.onChangeinputText}
           />
           <ButtonSendMe onClick={this.onClickMessage}>Send me</ButtonSendMe>
