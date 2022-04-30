@@ -4,12 +4,15 @@ import {
   Header,
   MessageContainer,
   Footer,
-  MessageArea
+  MessageArea,
+  InputMessage,
+  ButtonSendMe,
+  InputNome
 } from "./SendAreaStyles";
 
 class SendArea extends React.Component {
   state = {
-    messages: [{ sender: "Leandro", text: "Oi" }],
+    messages: [{ sender: "", text: "" }],
     inputSender: "",
     inputText: ""
   };
@@ -17,6 +20,10 @@ class SendArea extends React.Component {
   onChangeInputSender = (e) => {
     this.setState({ inputSender: e.target.value });
   };
+
+  onChangeinputText = (e) =>{
+    this.setState({ inputText: e.target.value });
+  }
 
   onClickMessage = () => {
     const newMessage = [...this.state.messages];
@@ -31,7 +38,7 @@ class SendArea extends React.Component {
     return (
       <Container>
         <Header>
-          <h1>Não Estou Quebrado</h1>
+          <h1>Whatslab</h1>
         </Header>
         <MessageContainer>
           {this.state.messages.map((m, i) => {
@@ -44,12 +51,15 @@ class SendArea extends React.Component {
           })}
         </MessageContainer>
         <Footer>
-          <input
+          <InputNome
             value={this.state.inputSender}
             onChange={this.onChangeInputSender}
           />
-          <input />
-          <button onClick={this.onClickMessage}>Send me</button>
+          <InputMessage 
+          vslue={this.state.inputText}
+          onChange={this.onChangeinputText}
+          />
+          <ButtonSendMe onClick={this.onClickMessage}>Send me</ButtonSendMe>
         </Footer>
       </Container>
     );
