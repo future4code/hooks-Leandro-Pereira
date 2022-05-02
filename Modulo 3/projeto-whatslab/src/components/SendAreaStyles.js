@@ -41,7 +41,7 @@ export const InputMessage = styled.input`
   padding: 10px;
 `
 
-export const InputNome = styled.input`
+export const InputName = styled.input`
   display:flex;
   width:20%;
   border-radius: 15px;

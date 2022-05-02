@@ -83,3 +83,4 @@ console.log(hipotenusa(8, 7));
 
 // 1. na primeira funçao o resultado é 10 e 50 ---- 2. true, true, true porque a propriedade toLowerCase
 //corrige todas as entradas
+

@@ -1,4 +1,5 @@
 import React from "react";
+import emoji from "../images/emoji-teste.jpg";
 import {
   Container,
   Header,
@@ -7,14 +8,12 @@ import {
   MessageArea,
   InputMessage,
   ButtonSendMe,
-  InputNome
+  InputName
 } from "./SendAreaStyles";
 
 class SendArea extends React.Component {
   state = {
-    messages: [{ sender: "", text: "" }],
-    inputSender: "",
-    inputText: ""
+     messages:[{inputSender: "" ,inputText: ""}]
   };
 
   onChangeInputSender = (e) => {
@@ -32,7 +31,7 @@ class SendArea extends React.Component {
       text: this.state.inputText
     });
     this.setState({ messages: newMessage });
-    this.setState({ inputSender: "", inputText: ""}); 
+    this.setState({ inputSender:"", inputText: ""}); 
   };
 
   render() {
@@ -52,7 +51,7 @@ class SendArea extends React.Component {
           })}
         </MessageContainer>
         <Footer>
-          <InputNome
+          <InputName
             value={this.state.inputSender}
             onChange={this.onChangeInputSender}
           />
