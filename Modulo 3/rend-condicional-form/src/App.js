@@ -3,14 +3,10 @@ import GeneralData from './components/GeneralData';
 import AddInformation from './components/AddInformation';
 import Course from './components/Course';
 import FinalStep from './components/FinalStep';
-import styled from 'styled-components';
+// import {FormContainer, Button} from './components/StyledComponents';
 
-const Button = styled.button`
-width: 100px;
-height : 50px;
-padding: 10px;
-margin-top:120px; 
-`
+
+
 
 class App extends React.Component{
   state = {
@@ -31,19 +27,17 @@ class App extends React.Component{
         return <Course/>
       case 4:
         return <FinalStep/>    
-      default:
-        return "Houve um erro em nossos servidores, tente novamente mais tarde"
     }
   }
 
   render() {
     return(
-    <>
-      {this.renderStep()}
       <div> 
-        <Button onClick ={this.changeStep}>Next Step</Button>
+        {this.renderStep()}
+        {this.state.step !== 4 && (
+          <button onClick ={this.changeStep}>Next Step</button>
+        )}
       </div>
-    </>
     )
   }
 }
