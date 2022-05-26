@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
-
+import UserList from './components/UserList'
+import RegistrationScreen from './components/RegistrationScreen'
 
 
 const headers = {
@@ -9,64 +10,35 @@ const headers = {
  }
 }
 
-const urlCreateUsers = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
-
 class App extends React.Component {
   state = {
-    inputName:"",
-    inputEmail:""
+    currentScreen: "Registration"
   }
-
-  createUsers = () => {
-    const body = {
-      name:this.state.inputName,
-      email:this.state.inputEmail
+  
+  changePage = () => {
+    switch (this.state.currentScreen) {
+      case "Registration":
+        return <RegistrationScreen goToList={this.goToList}/>
+      case "List":
+        return <UserList goToRegistration={this.goToRegistration}/>
+      default:
+        return <p>Page not found</p>
     }
 
-    axios.post(urlCreateUsers,body, headers).then((response) => {
-      this.setState({
-        inputName: "", 
-        inputEmail: ""
-      });
-    })
-    .catch(error => {
-      alert(error.data.message )
-    })
   }
 
-  sendInput = (event) => {
-    this.setState({inputName: event.target.value})
+  goToRegistration = () =>{
+    this.setState({currentScreen: "Registration"})
   }
 
-  sendEmail = (event) => {
-    this.setState({inputEmail: event.target.value})
+  goToList = () => {
+    this.setState({currentScreen: "List"})
   }
 
-  render() {
-    return(
+  render(){
+    return (
       <div>
-        <h1>Cadastro</h1>
-        <input placeholder="Name"
-        value={this.state.inputName}
-        onChange={this.sendInput}
-        />
-
-        <input placeholder="Email"
-        value={this.state.inputEmail}
-        onChange={this.sendEmail}
-        />
-        <button onClick={this.createUsers}>Send</button>
-      
-      <p>O projeto é composto por duas telas a saber:
-        <p>1.Tela de cadastro: esta tela deve solicitar um nome e email. Além disso, deve utilizar a requisição de criar
-          o usuário da API. Tanto em erro como em sucesso, um alert deve ser mostrado ao usuário.
-        </p>
-        <p>2.Tela de lista de usuários: Esta tela deve mostrar uma lista dos usuários com somente seus nomes.
-          Cada item da lista deve possuir um botão de deletar que realize a requisição de deletar da API. Tanto 
-          em erro como sucesso, um alert deve ser mostrado ao usuário.
-          Crie um botão voltar: ao clicar nele, o usuário deve voltar a tela inicial.
-        </p>
-      </p>
+       {this.changePage()}
       </div>
     )
   }
