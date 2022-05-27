@@ -1,19 +1,52 @@
 import React from "react";
 import axios from "axios";
-import styled from "styled-components"; 
+import styled from "styled-components";
+import GlobalStyle from "./GlobalStyle"
 import ReactAudioPlayer from "react-audio-player";
 
 const urlCreatePlaylist =
   "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists";
+
 const CardList = styled.div`
   border: 1px solid black;
-  padding: 10px;
-  margin: 10px;
+  padding: 20px;
+  display: flex;
+  width: 730px;
+  align-items: center;
+  justify-content: space-between;
+  margin-left:250px;
+`;
+
+const Title = styled.h1`
+color: white;
+display:flex;
+margin-left:540px;
+font-size: 40px;
+margin-bottom: 20px;
+
+`
+
+const CardButton = styled.button`
   display: flex;
   justify-content: space-between;
-  margin:auto;
-  align-items: center;
-`;
+`
+
+const CardButton2 = styled.button`
+  display: flex;
+  margin-left:540px;
+  padding:10px;
+  width:80px;
+  margin-bottom: 20px;
+`
+
+const CardInput = styled.input`
+margin-left: 100px;
+border: 1px solid black;
+border-radius: 10px;
+padding:10px;
+margin-bottom: 20px;
+`
+
 const headersAuthorization = {
   headers: {
     Authorization: "leandro-pereira-hooks",
@@ -101,7 +134,7 @@ class App extends React.Component {
       .delete(url, headersAuthorization)
       .then((response) => {
         alert("User successfully deleted!");
-        this.GetAllPlaylists()
+        this.GetAllPlaylists();
       })
       .catch((error) => {
         alert("Something went wrong!");
@@ -130,15 +163,15 @@ class App extends React.Component {
       return (
         <CardList key={playlist.id}>
           {playlist.name}
-          <button onClick={() => this.AddTrackToPlaylist(playlist.id)}>
+          <CardButton onClick={() => this.AddTrackToPlaylist(playlist.id)}>
             Add Tracks
-          </button>
-          <button onClick={() => this.GetPlaylistTracks(playlist.id)}>
+          </CardButton>
+          <CardButton onClick={() => this.GetPlaylistTracks(playlist.id)}>
             To See Playlist
-          </button>
-          <button onClick={() => this.DeletePlaylist(playlist.id)}>
+          </CardButton>
+          <CardButton onClick={() => this.DeletePlaylist(playlist.id)}>
             Delete
-          </button>
+          </CardButton>
         </CardList>
       );
     });
@@ -161,27 +194,29 @@ class App extends React.Component {
 
     return (
       <div>
-        <input
-          placeholder="Playlist"
-          value={this.state.inputPlaylists}
-          onChange={this.CurrentPlaylist}
-        />
-        <button onClick={this.CreatePlaylist}>Create Playlist</button>
-        <input
-          placeholder="Tracks"
+        <GlobalStyle/>
+        <Title>Labefy</Title>
+        <CardInput
+          placeholder="Add Tracks"
           value={this.state.inputTrack}
           onChange={this.CurrentTracks}
         />
-        <input
-          placeholder="Artist"
+        <CardInput
+          placeholder="Add Artist"
           value={this.state.inputArtist}
           onChange={this.CurrentArtist}
         />
-        <input
-          placeholder="url"
+        <CardInput
+          placeholder="Add url"
           value={this.state.inputUrl}
           onChange={this.CurrentUrl}
         />
+        <CardInput
+          placeholder="Create Playlist"
+          value={this.state.inputPlaylists}
+          onChange={this.CurrentPlaylist}
+        />
+        <CardButton2 onClick={this.CreatePlaylist}>Create Playlist</CardButton2>
         {newPlaylist}
         {newTrackList}
       </div>
