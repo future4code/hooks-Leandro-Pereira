@@ -1,11 +1,12 @@
 import React from 'react';
-import ListTripsPage from './Pages/ListTripsPage';
-
+import GlobalStyle from './GlobalStyle/GlobalStyle';
+import Router from './Router/Router'
 
 const App = () => {
   return (
     <div>
-     <ListTripsPage/>
+      <Router/>
+      <GlobalStyle/>
     </div>
   );
 }
