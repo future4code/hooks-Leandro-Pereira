@@ -13,12 +13,12 @@ const AppRoutes = () =>{
         <BrowserRouter>
             <Routes>
                 <Route index element={<HomePage/>} />
-                <Route path='/AdminHomePage' element={<AdminHomePage/>} />
-                <Route path='/ApplicationFormPage' element={<ApplicationFormPage/>} />
-                <Route path='/CreateTripPage' element={<CreateTripPage/>} />
-                <Route path='/ListTripsPage' element={<ListTripsPage/>} />
-                <Route path='/LoginPage' element={<LoginPage/>} />
-                <Route path='/TripsDetailsPage' element={<TripsDetailsPage/>} />
+                <Route path='/admin/trips/list' element={<AdminHomePage/>} />
+                <Route path='/trips/aplication' element={<ApplicationFormPage/>} />
+                <Route path='/admin/trips/create' element={<CreateTripPage/>} />
+                <Route path='/trips/list' element={<ListTripsPage/>} />
+                <Route path='/Login' element={<LoginPage/>} />
+                <Route path='/admin/trips/:id' element={<TripsDetailsPage/>} />
             </Routes>
         </BrowserRouter>
     )
