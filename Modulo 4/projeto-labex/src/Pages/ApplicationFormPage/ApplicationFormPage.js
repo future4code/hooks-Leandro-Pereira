@@ -1,132 +1,121 @@
-import React, { useState, useEffect } from "react";
-import Headers from "../Header/Headers";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { goBack } from "../../routes/coordinator";
+import { useParams } from "react-router-dom";
+import { useRequestData } from "../../hooks/useRequestData";
+import { BASE_URL } from "../../constants/Base_url";
+import { Countries } from "../../constants/Countries";
+import { useForm } from "../../hooks/useForms";
 import axios from "axios";
-import {countries} from '../../Constants/Constants'
 
 const ApplicationFormPage = () => {
-  const [showTrips, setTrips] = useState([]);
-  const [trip, setTrip] = useState([]);
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [applicationText, setApplicationText] = useState("");
-  const [profession, setProfession] = useState("");
-  const [countryState, setCountryState] = useState("");
-  const [id, setId] = useState("");
+  const navigate = useNavigate();
+  const params = useParams();
+  const getTrips = useRequestData(`${BASE_URL}/trips`, {});
+  const { form, handleChange, cleanFields } = useForm({
+    name: "",
+    age: "",
+    applicationText: "",
+    profession: "",
+    country: "",
+  });
 
-  const getTrips = () => {
+  const tripSelected =
+    getTrips.trips &&
+    getTrips.trips
+      .filter((trip) => {
+        return trip.id === params.id;
+      })
+      .map((trip) => {
+        return trip.name;
+      });
+
+  const enviar = (event) => {
+    event.preventDefault();
     axios
-        .get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/leandro-pereira-hooks/trips")
-
-        .then((response) => {
-          setTrips(response.data.trips)
-        }
-    )
-        .catch((error) => {
-            console.log(error)
-        }
-    )
-}
-
-useEffect(() => {getTrips()}, [])
-
-  const onchangeName = (event) => {
-    setName(event.target.value);
-  };
-
-  const onchangeAge = (event) => {
-    setAge(event.target.value);
-  };
-
-  const onchangeApplicationText = (event) => {
-    setApplicationText(event.target.value);
-  };
-
-  const onchangeProfession = (event) => {
-    setProfession(event.target.value);
-  };
-
-  const onchangeCountry = (event) => {
-    setCountryState(event.target.value);
-  };
-
-  const onchangeId = (event) => {
-    setId(event.target.value);
-  };
-
-  const applyToTrip = () => {
-    const body = {
-      name: name,
-      age: age,
-      applicationText: applicationText,
-      profession: profession,
-      country: countryState,
-    };
-
-    axios
-      .post(
-        `https://us-central1-labenu-apis.cloudfunctions.net/labeX/leandro-pereira-hooks/trips/${id}/apply`,
-        body
-      )
+      .post(`${BASE_URL}/trips/${params.id}/apply`, form)
       .then((response) => {
-        alert('Very well')
-        setTrip('');
-        setName("");
-        setAge("");
-        setApplicationText("");
-        setProfession("");
-        setCountryState("");
+         alert('request made successfully')
+        cleanFields();
       })
       .catch((error) => {
-        alert('So bad')
-        setTrip("");
-        setName("");
-        setAge("");
-        setApplicationText("");
-        setProfession("");
-        setCountryState("");
+        alert(error.response);
       });
   };
 
-  // useEffect(() => {
-  //   applyToTrip();
-  // }, []);
-
-  const renderTrips = showTrips.map((trip) => {
-    <option key={trip.id} value={trip.id}>
-      {trip.name}
-    </option>;
+  //faz um map no array de paises recebido de constants
+  const country = Countries.map((country) => {
+    return (
+      <option key={country.ordem} value={country.nome}>
+        {country.nome}
+      </option>
+    );
   });
-
-  const renderCountries = countries.map((country,index)=>{
-    return <option key={index}>{country}</option>
-  })
 
   return (
     <div>
-      <Headers />
-      <div>
-        <h1>Sign up for an amazing trip</h1>
-      </div>
-      <div>
+      <divisao>
+        <h1> Come Signup:</h1>
         <div>
-          <select value={trip} onChange={onchangeId}>
-            <option>Select a trip</option>
-            {renderTrips}
-          </select>
-          <input placeholder="Name" value={name} onChange={onchangeName} />
-          <input placeholder="Age" value={age} onChange={onchangeAge} />
-          <input placeholder="Profession" value={profession} onChange={onchangeProfession}/>
-          <select>
-            <option value={countryState} onChange={onchangeCountry}>Select a country</option>
-            {renderCountries}
-          </select>
-          <textarea placeholder='Application text' value={applicationText} onChange={onchangeApplicationText} />
-          <div>
-            <button onClick={() =>applyToTrip()}>Send</button>
-          </div>
+          <form onSubmit={enviar}>
+            <h2>Selected Trip </h2>
+            <h2>
+              <span>{tripSelected}</span>
+            </h2>
+            <input
+              value={form.name}
+              name="name"
+              onChange={handleChange}
+              placeholder={"Name"}
+              required
+              pattern={"^.{3,}"}
+              title={"The name must be at least 3 letters long"}
+            />
+            <input
+              value={form.age}
+              name="age"
+              onChange={handleChange}
+              placeholder={"Age"}
+              required
+              type="number"
+              min={18}
+            />
+            <input
+              value={form.profession}
+              name="profession"
+              onChange={handleChange}
+              placeholder={"Profession"}
+              required
+              pattern={"^.{10,}"}
+              title={"Profession must be at least 10 characters long"}
+            />
+            <select
+              value={form.country}
+              name="country"
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select a country</option>
+              {country}
+            </select>
+            <input
+              value={form.applicationText}
+              name="applicationText"
+              onChange={handleChange}
+              placeholder={"Application Text"}
+              required
+              pattern={"^.{30,}"}
+              title={"The application must be at least 30 characters long"}
+            />
+            <button>
+              <button>Send</button>
+              <button onClick={() => goBack(navigate)}>Come Back</button>
+            </button>
+          </form>
         </div>
-      </div>
+      </divisao>
     </div>
   );
 };
+
 export default ApplicationFormPage;

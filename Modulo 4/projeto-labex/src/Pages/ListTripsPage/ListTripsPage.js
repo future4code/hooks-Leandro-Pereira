@@ -1,50 +1,45 @@
-import React, {useState, useEffect} from "react";
-import { useNavigate } from "react-router-dom";
-import Headers from "../Header/Headers";
-import axios from "axios";
-import {Title, Button} from './styles'
+import * as React from "react"
+import { useNavigate } from "react-router-dom"
+import { goToApplicationForm } from "../../routes/coordinator"
+import { BASE_URL } from "../../constants/Base_url"
+import { useRequestData } from "../../hooks/useRequestData"
 
 const ListTripsPage = () => {
-  const navigate = useNavigate();
-  const [showTrips, setTrips] = useState([]);
 
-  const getTrips = () => {
-    axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labeX/leandro-pereira-hooks/trips')
-    .then((response)=>{
-      setTrips(response.data.trips)
-
-    })
-    .catch((error) => {
-      alert('Something went wrong')
-    })
-  }
-  
-  useEffect(() => {
-    getTrips()
-  }, [])
+   const navigate = useNavigate()
+   const listTrip = useRequestData(`${BASE_URL}/trips`, {})
 
 
-  const trips = showTrips.map((trip) =>{
-    return(
-      <div key={trip.id}>
-        <p>{trip.name}</p>
-        <p>{trip.description}</p>
-        <p>{trip.planet}</p>
-        <p>{trip.durationInDays}</p>
-        <p>{trip.date}</p>
+   const trips =
+      listTrip.trips &&
+      listTrip.trips.map((trip) => {
+         return (
+
+            <div key={trip.id}>
+               <div className="DivCard" color='primary' sx={{ minWidth: 275 }}>
+
+                  <p>{trip.planet}</p>
+                  <div>
+                     <p className="top-top">Name: {trip.name}</p>
+                     <p className="top">Description: {trip.description}</p>
+                     <p className="top1"> Duration: {trip.durationInDays} dias</p>
+                     <p className="top2"> Date: {trip.date}</p>
+                     <button className="button" onClick={() => goToApplicationForm(navigate, trip.id)}>
+                        Inscrever-se
+                     </button>
+                  </div>
+               </div>
+            </div>
+         );
+      })
+
+   return (
+      <div>
+
+         <li>{trips}</li>
+
       </div>
-    )
-  })
+   )
+}
 
-  return (
-    <div>
-      <Headers/>
-      <Title>List Trips Page</Title>
-      <Button onClick={() => navigate("/admin/trips/:id")}>
-        Trips Details Page
-      </Button>
-      {trips}
-    </div>
-  );
-};
-export default ListTripsPage;
+export default ListTripsPage

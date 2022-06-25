@@ -1,70 +1,73 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import {
-  Container,
-  ContainerImg,
-  InputsContainer,
-  Input,
-  ButtonsContainer,
-} from "./styles";
+import axios from "axios"
+import React, { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { BASE_URL } from "../../constants/Base_url"
+import { goBack } from "../../routes/coordinator"
+
 
 const LoginPage = () => {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  const onchangeEmail = (event) => {
-    setEmail(event.target.value);
-  };
+   const navigate = useNavigate();
+   const [email, setEmail] = useState("")
+   const [password, setPassword] = useState("")
 
-  const onchangePassword = (event) => {
-    setPassword(event.target.value);
-  };
+   const onChangeEmail = (event) => {
+      setEmail(event.target.value);
+   };
 
-  const onSubmitLogin = () => {
-    const body = {
-      email: email,
-      password: password,
-    };
-    axios
-      .post(
-        "https://us-central1-labenu-apis.cloudfunctions.net/labeX/leandro-pereira-hooks/login",
-        body
-      )
-      .then((response) => {
-        localStorage.setItem("token", response.data.token);
-        navigate("/admin/trips/list");
-      })
-      .catch((error) => {
-        alert("email or invalid password");
-      });
-  };
+   const onChangePassword = (event) => {
+      setPassword(event.target.value);
+   };
 
-  return (
-    <Container>
-      <ContainerImg>
-        <h1>Admin Home Page</h1>
-      </ContainerImg>
-      <InputsContainer>
-        <Input
-        type='email' 
-        placeholder="Users"  
-        value={email} 
-        onChange={onchangeEmail} 
-        />
-        <Input
-          type="password"
-          placeholder="password"
-          value={password}
-          onChange={onchangePassword}
-        />
-      </InputsContainer>
-      <ButtonsContainer>
-        <button onClick={() => onSubmitLogin()}>Login</button>
-        <button onClick={() => navigate(-1)}>Go Back</button>
-      </ButtonsContainer>
-    </Container>
-  );
-};
-export default LoginPage;
+   const onSubmitLogin = () => {
+
+      const body = {
+         email: email,
+         password: password,
+      };
+      axios
+         .post(`${BASE_URL}/login`, body)
+         .then((res) => {
+            localStorage.setItem("token", res.data.token);
+            navigate("/admin/trips/list")
+         })
+         .catch((err) => {
+            alert("Login or password not authorized");
+         });
+   };
+
+   useEffect(() => {
+      if (localStorage.getItem("token")) {
+         navigate("/admin/trips/list");
+      }
+   });
+
+   return (
+      <div>
+         <div>
+
+            <h1> Login </h1>
+            <h2>Admin Area</h2>
+            <input
+               placeholder="Login"
+               type="email"
+               value={email}
+               onChange={onChangeEmail}
+            />
+
+            <input
+               placeholder="Password"
+               type="password"
+               value={password}
+               onChange={onChangePassword}
+            />
+            <div>
+               <button onClick={onSubmitLogin}>Enter</button>
+               <button onClick={() => goBack(navigate)}>Come Back</button>
+            </div>
+         </div>
+      </div>
+   )
+}
+
+export default LoginPage
