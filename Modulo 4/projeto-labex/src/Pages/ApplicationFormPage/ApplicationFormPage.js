@@ -43,7 +43,6 @@ const ApplicationFormPage = () => {
       });
   };
 
-  //faz um map no array de paises recebido de constants
   const country = Countries.map((country) => {
     return (
       <option key={country.ordem} value={country.nome}>

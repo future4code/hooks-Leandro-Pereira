@@ -33,7 +33,7 @@ export const useProtectedPage = () => {
       const token = localStorage.getItem("token");
 
       if (token === null) {
-         alert("Para acessar essa página é necessario fazer login")
+         alert('login')
          navigate("/login")
       }
    })
