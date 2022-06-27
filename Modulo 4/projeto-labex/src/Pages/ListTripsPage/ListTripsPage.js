@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
-import { goToApplicationForm } from "../../routes/coordinator";
+import { goToApplicationForm, goHome } from "../../routes/coordinator";
 import { BASE_URL } from "../../constants/Base_url";
 import { useRequestData } from "../../hooks/useRequestData";
 
@@ -32,6 +32,7 @@ const ListTripsPage = () => {
   return (
     <div>
       <li>{trips}</li>
+      <button onClick={() => goHome(navigate)}>Home</button>
     </div>
   );
 };

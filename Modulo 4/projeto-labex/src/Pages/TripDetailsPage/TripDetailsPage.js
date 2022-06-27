@@ -51,7 +51,7 @@ const TripDetailsPage = () => {
       <ul>
         {detailsTrip && (
           <li>
-            <h2>Detalhes da Viagem</h2>
+            <h2>Trip details</h2>
             <p>Name: {detailsTrip.trip.name}</p>
             <p>Planet: {detailsTrip.trip.planet}</p>
             <p>Description: {detailsTrip.trip.description}</p>
@@ -68,8 +68,16 @@ const TripDetailsPage = () => {
                   <li key={candidate.id}>
                     {candidate.name}
                     <div>
-                      <button onClick={() => DecideCandidate(true, candidate.id)}>Approve</button>
-                      <button onClick={() => DecideCandidate(false, candidate.id)}>Disapprove</button>
+                      <button
+                        onClick={() => DecideCandidate(true, candidate.id)}
+                      >
+                        Approve
+                      </button>
+                      <button
+                        onClick={() => DecideCandidate(false, candidate.id)}
+                      >
+                        Disapprove
+                      </button>
                     </div>
                   </li>
                 );

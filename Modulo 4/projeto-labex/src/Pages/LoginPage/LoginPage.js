@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/Base_url";
-import { goBack } from "../../routes/coordinator";
+import { goBack, goHome } from "../../routes/coordinator";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -17,7 +17,8 @@ const LoginPage = () => {
     setPassword(event.target.value);
   };
 
-  const onSubmitLogin = () => {
+  const onSubmitLogin = (event) => {
+    event.preventDefault();
     const body = {
       email: email,
       password: password,
@@ -44,22 +45,27 @@ const LoginPage = () => {
       <div>
         <h1> Login </h1>
         <h2>Admin Area</h2>
-        <input
-          placeholder="Login"
-          type="email"
-          value={email}
-          onChange={onChangeEmail}
-        />
+        <form >
+          <input
+            placeholder="Login"
+            type="email"
+            value={email}
+            onChange={onChangeEmail}
+            required
+          />
 
-        <input
-          placeholder="Password"
-          type="password"
-          value={password}
-          onChange={onChangePassword}
-        />
-        <div>
+          <input
+            placeholder="Password"
+            type="password"
+            value={password}
+            onChange={onChangePassword}
+            required
+          />
           <button onClick={onSubmitLogin}>Enter</button>
-          <button onClick={() => goBack(navigate)}>Come Back</button>
+        </form>
+        <div>
+        <button onClick={() => goHome(navigate)}>Home</button>
+          <button onClick={() => goBack(navigate)}>Back</button>
         </div>
       </div>
     </div>

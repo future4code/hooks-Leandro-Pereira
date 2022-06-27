@@ -35,7 +35,7 @@ const ApplicationFormPage = () => {
     axios
       .post(`${BASE_URL}/trips/${params.id}/apply`, form)
       .then((response) => {
-         alert('request made successfully')
+        alert("request made successfully");
         cleanFields();
       })
       .catch((error) => {

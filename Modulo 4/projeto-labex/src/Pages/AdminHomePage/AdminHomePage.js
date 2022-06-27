@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { goToDetailsPage,goBack, goHome } from "../../routes/coordinator";
+import { goToDetailsPage, logout, goHome,goToCreatTrip } from "../../routes/coordinator";
 import { BASE_URL } from "../../constants/Base_url";
 import { useRequestData, useProtectedPage } from "../../hooks/useRequestData";
 import axios from "axios";
@@ -40,7 +40,7 @@ const AdminHomePage = () => {
             </p>
           </div>
           <div>
-            <button onClick={() => DeleteTrip(trip.id)}>Send</button>
+            <button onClick={() => DeleteTrip(trip.id)}>Delete Trip</button>
           </div>
         </div>
       );
@@ -57,8 +57,9 @@ const AdminHomePage = () => {
         <h2> Trip List</h2>
         {trips}
       </div>
-      <button onClick={() =>goHome(navigate)}>Home</button>
-      <button onClick={() => goBack(navigate)}>Come Back</button>
+      <button onClick={()=>goToCreatTrip(navigate)} >Create your Trip</button>
+      <button onClick={() => goHome(navigate)}>Home</button>
+      <button onClick={() => logout(navigate)}>Logout</button>
     </div>
   );
 };
