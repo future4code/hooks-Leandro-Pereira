@@ -1,7 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { goBack } from "../../routes/coordinator";
-import { useParams } from "react-router-dom";
+// import {  } from "react-router-dom";
 import { useRequestData } from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/Base_url";
 import { Countries } from "../../constants/Countries";
@@ -30,7 +30,7 @@ const ApplicationFormPage = () => {
         return trip.name;
       });
 
-  const enviar = (event) => {
+  const Send = (event) => {
     event.preventDefault();
     axios
       .post(`${BASE_URL}/trips/${params.id}/apply`, form)
@@ -53,10 +53,10 @@ const ApplicationFormPage = () => {
 
   return (
     <div>
-      <divisao>
+      <div>
         <h1> Come Signup:</h1>
         <div>
-          <form onSubmit={enviar}>
+          <form onSubmit={Send}>
             <h2>Selected Trip </h2>
             <h2>
               <span>{tripSelected}</span>
@@ -108,11 +108,11 @@ const ApplicationFormPage = () => {
             />
             <button>
               <button>Send</button>
-              <button onClick={() => goBack(navigate)}>Come Back</button>
+              <button onClick={() => goBack(navigate)}>Back</button>
             </button>
           </form>
         </div>
-      </divisao>
+      </div>
     </div>
   );
 };
