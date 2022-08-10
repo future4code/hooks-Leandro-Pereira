@@ -1,7 +1,3 @@
-const anoAtual:number = 2022
-const anoNascimento:number = 1985
-const anoEmissao:number = 2009
-
 function checaRenovacaoRG(anoAtual: number, anoNascimento:number, anoEmissao:number ):string {
     let idade = anoAtual - anoNascimento
     let tempoCarteira = anoAtual - anoEmissao
@@ -20,5 +16,5 @@ function checaRenovacaoRG(anoAtual: number, anoNascimento:number, anoEmissao:num
        }
    }
 
-   console.log(checaRenovacaoRG(anoAtual, anoNascimento, anoEmissao))
+   console.log(checaRenovacaoRG(2022, 1985, 2009))
    

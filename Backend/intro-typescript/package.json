@@ -1,0 +1,21 @@
+{
+  "name": "intro-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "ex1": "tsc && node ./build/triangulos.js",
+    "ex2": "tsc && node ./build/cores.js",
+    "ex3": "tsc && node ./build/comparaDoisNumeros.js",
+    "ex4": "tsc && node ./build/leapYear.js",
+    "ex5": "tsc && node ./build/checaRenovacaoRG.js",
+    "type": "module"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

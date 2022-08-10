@@ -1,6 +1,3 @@
-const num1:number = 4
-const num2:number = 5
-
 function comparaDoisNumeros(num1:number, num2:number):number {
     let maiorNumero;
     let menorNumero;
@@ -18,4 +15,4 @@ function comparaDoisNumeros(num1:number, num2:number):number {
     return diferenca 
   }
 
-console.log(comparaDoisNumeros(num1, num2))  
+console.log(comparaDoisNumeros(6, 7))  

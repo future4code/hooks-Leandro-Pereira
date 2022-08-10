@@ -1,7 +1,3 @@
-const a:number = 4
-const b:number = 4
-const c:number = 4
-
 function checaTriangulo(a: number, b: number, c: number) {
     if (a !== b && b !== c) {
         return "Escaleno";
@@ -12,4 +8,4 @@ function checaTriangulo(a: number, b: number, c: number) {
     }
 }
 
-console.log(checaTriangulo(a,b,c))
+console.log(checaTriangulo(5, 5, 6))
