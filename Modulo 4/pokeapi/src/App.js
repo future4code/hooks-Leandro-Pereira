@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import styled from 'styled-components'
 import PokeCard from "./components/PokeCard/PokeCard";
-
-
+import Router from './Router/Router'
 const App = () => {
   const [pokeList, setPokeList] = useState([]);
   const [pokeName, setPokeName] = useState("");
@@ -25,6 +23,7 @@ const App = () => {
 
   return (
     <div>
+      <Router/>
       <select onChange={changePokeName}>
         <option value={""}>Nenhum</option>
         {pokeList.map((pokemon)=>{
