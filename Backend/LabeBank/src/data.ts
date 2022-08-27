@@ -26,3 +26,7 @@ export const clients: Client[] = [{
     bankBalance: 3325,
     bankStatement: [],
 }]      
+
+
+
+
