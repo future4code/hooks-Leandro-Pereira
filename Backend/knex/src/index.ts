@@ -16,15 +16,15 @@ app.listen(process.env.PORT || 3003, () => {
 app.get('/buscarUsuarios', async (req: Request, res: Response) => {
   let errorCode = 400;
 
- try {
-  const result = await connection.raw(`
+  try {
+    const result = await connection.raw(`
   SELECT * FROM Usuarios
 `)
- res.status(200).send(result[0]);
- } catch (error) {
-  res.status(errorCode).send(error.message)
-  
- }
+    res.status(200).send(result[0]);
+  } catch (error) {
+    res.status(errorCode).send(error.message)
+
+  }
 
 })
 
@@ -32,15 +32,15 @@ app.get('/buscarUsuarios', async (req: Request, res: Response) => {
 
 app.post('/criarUsuarios', async (req, res) => {
   let errorCode = 400;
-  const {id, nome, email} = req.body
+  const { id, nome, email } = req.body
 
   try {
-    if(!nome || !email){
+    if (!nome || !email) {
       throw new Error("nome ou email faltando")
     }
 
     const novoUsuario = {
-      id:Date.now(),
+      id: Date.now(),
       nome,
       email
     }
@@ -61,27 +61,55 @@ app.post('/criarUsuarios', async (req, res) => {
 
 app.put('/editarUsuario/:id', async (req, res) => {
 
-let errorCode = 400;
+  let errorCode = 400;
 
-try {
-  const id = Number(req.params.id);
-  const email = req.body.email;
+  try {
+    const id = Number(req.params.id);
+    const email = req.body.email;
 
-  const usuario = await connection.raw(`
+    const usuario = await connection.raw(`
     SELECT * FROM Usuarios
     WHERE id = ${id}
   `)
 
-  await connection.raw(`
+    await connection.raw(`
   UPDATE Usuarios
   SET email = "${email}"
   WHERE id = ${id};
 `)
-res.status(200).send("usuario alterado COM SUCESSO!")
+    res.status(200).send("usuário alterado COM SUCESSO!")
 
-} catch (error) {
-  res.status(errorCode).send(error.message)
-}
+  } catch (error) {
+    res.status(errorCode).send(error.message)
+  }
 
 })
+
+// exercise 4
+
+app.delete('/deleteUsuario/:id', async (req, res) => {
+  let errorCode = 400;
+  try {
+    const id = Number(req.params.id);
+
+    const usuario = await connection.raw(`
+    SELECT * FROM Usuarios
+    WHERE id = '${id}'
+    `)
+
+    if (usuario[0].length === 0) {
+      throw new Error("Usuário não encontrado")
+    }
+
+    await connection.raw(`
+      DELETE FROM Usuarios
+      WHERE id = ${id}
+    `)
+
+    res.status(200).send("Usuário deletado COM SUCESSO!")
+  } catch (error) {
+    res.status(errorCode).send(error.message)
+  }
+})
+
 
