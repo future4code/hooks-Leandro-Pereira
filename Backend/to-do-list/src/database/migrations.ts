@@ -1,12 +1,13 @@
 import connection from "./connection";
 
-const createUserTable = async () => {
+const criarTabelaUsuarios = async () => {
     try {
         await connection.raw(`
-            CREATE TABLE IF NOT EXISTS Users (
-            id VARCHAR(40) PRIMARY KEY,
+        CREATE TABLE Usuarios(
+            id VARCHAR(40) NOT NULL PRIMARY KEY,
             name VARCHAR(40) NOT NULL,
-            nickname VARCHAR(40) NOT NULL            
+            nickname VARCHAR(40) NOT NULL,
+            email VARCHAR(40) UNIQUE NOT NULL
             );
         `)
 
@@ -17,17 +18,13 @@ const createUserTable = async () => {
     }
 }
 
-async function populateUserTable() {
+async function popularTabelaUsuarios() {
     try {
         await connection.raw(`
-            INSERT INTO Users (id, name, nickname)
-            VALUES 
-            ("User1", "Leandro","Chassi de Grilo"),
-            ("User2", "Sandra", "Irmã Santa"),
-            ("User3", "João", "Joãozinho"),
-            ("User4", "Victória", "Vicky"),
-            ("User5", "Sara", "Zé"),
-            ("User6", "Lucas", "Amendoim");
+        INSERT INTO Usuarios(id, name, nickname, email)
+        VALUES("user1", "Leandro", "Chassi de grilo", "Le0406@hotmail.com"),
+              ("user2", "Sandra", "Irmã Santa", "Sandrapira_couto@hotmail.com"),
+              ("user3", "Sara", "Zé", "Sara454@hotmail.com");
         `)
 
         console.log("User table populated successfully!")
@@ -37,7 +34,7 @@ async function populateUserTable() {
     }
 }
 
-createUserTable()
-    .then(() => populateUserTable())
+criarTabelaUsuarios()
+    .then(() => popularTabelaUsuarios())
     .finally(() => process.exit())
 
