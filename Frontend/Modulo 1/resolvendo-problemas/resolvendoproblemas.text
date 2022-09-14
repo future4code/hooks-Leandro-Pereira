@@ -1,0 +1,12 @@
+Resumindo os 7 passos fundamentais consistem em ter atenção na hora de interpretar um enunciado, 
+saber distinguir oque é relevante para a construção do código, pensar em como serão as entradas e saídas, 
+ou seja, devemos nos atentar em como essas informações vão fazer parte do nosso código como vou inseri-las
+de forma lógica e as saídas serão os resultados produzidos pelas entradas. Fazer um esquema visual é montar um fluxograma
+para ajudar a visualizar oque o enunciado está pedindo e facilitar a compreensão do mesmo. Criar um código feio é 
+literalmente fazer isto é criar um código de teste, onde você vai encaixando sua lógica e aperfeiçoando até chegar a 
+um reultado satisfatório. Testar força bruta é testar o seu código depois de pronto de alguma forma para saber se 
+ele realmente funciona antes de entrega-lo e por fim refatorar significa que devemos enxugar nosso código e deixa-lo 
+mais "limpo" possivel, para que ele fique fácil de compreender e mais rápido na hora de executa-lo ou quando precisarmos 
+dar manutenção não tenhamos muitas dificuldades. N
+Bem acho que é isso, um abraço para quem for ler este arquivo.
+

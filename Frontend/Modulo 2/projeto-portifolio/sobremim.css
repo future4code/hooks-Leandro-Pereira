@@ -1,0 +1,50 @@
+*{
+    margin:0;
+    padding: 0;
+}
+header{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    background-color:blue;
+}
+
+body {
+    background-color:aqua;
+}
+
+main>p{
+    font-size:30px;
+    margin:right 20px;
+}
+
+ul{
+    position:absolute;
+    right: 20px;
+    font-size:20px;
+}
+
+#right{
+    font-size: 30px;
+}
+
+.display a{
+    display: inline-block;
+    color:white;
+    padding: 20px;
+}
+
+.display a:hover{
+    background-color:red;
+    color: black;
+}
+
+footer{
+    text-align: center;
+    background-color:blue;
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+    font-size:30px;
+}
