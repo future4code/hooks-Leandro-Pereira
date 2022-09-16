@@ -1,0 +1,21 @@
+[
+	{
+		"id":"user1",
+		"name": "Erico",
+		"email": "Erico_rubio@hotmail.com",
+		"type": "224400"
+	},
+	{
+		"id":"user2",
+		"name": "Marcos",
+		"email": "Marcos_bergamo@hotmail.com",
+		"type": "123456"
+	},
+	{
+		"id":"user3",
+		"name": "Katia",
+		"email": "Katia_Lino@hotmail.com",
+		"type": "159785"
+	}
+	
+]
