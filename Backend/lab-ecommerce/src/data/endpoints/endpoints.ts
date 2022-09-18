@@ -11,7 +11,7 @@ app.post('/createUser', async (req, res) => {
 
         const { name, email, password } = req.body
 
-        if(!name || !email || !password){
+        if (!name || !email || !password) {
             throw new Error("Incomplete Data!")
         }
 
@@ -62,7 +62,7 @@ app.post('/createProducts', async (req, res) => {
 
         const { name, price, image_url } = req.body
 
-        if(!name || !price || !image_url){
+        if (!name || !price || !image_url) {
             throw new Error('Incomplete Data!')
         }
 
@@ -107,4 +107,34 @@ app.get('/getAllProducts', async (req, res) => {
 
 // exercise 05
 
+app.post("/createPurchases", async (req, res) => {
+    let errorCode = 400
 
+    try {
+
+        const { user_id, product_id, quantity } = req.body
+
+        if (!user_id || !product_id || !quantity) {
+            throw new Error("Something went wrong!")
+        }
+
+        const newPurchase = {
+            id: generateId(),
+            user_id,
+            product_id,
+            quantity
+        }
+
+        await connection.raw(`
+                INSERT TO labecommerce_purchases(id, user_id, product_id, quantity)
+                VALUES("${newPurchase.id}", ${newPurchase.user_id},${newPurchase.product_id}, ${newPurchase.quantity});
+            `)
+
+        res.status(200).send("successful purchase")
+
+
+    } catch (error) {
+        res.status(400).send("something went wrong!")
+    }
+
+})
