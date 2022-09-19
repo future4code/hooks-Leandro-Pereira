@@ -107,14 +107,16 @@ app.get('/getAllProducts', async (req, res) => {
 
 // exercise 05
 
+// Não estou conseguindo fazer funcionar o exercício 5
+
 app.post("/createPurchases", async (req, res) => {
     let errorCode = 400
 
     try {
 
-        const { user_id, product_id, quantity } = req.body
+        const { user_id, product_id, quantity, total_price } = req.body
 
-        if (!user_id || !product_id || !quantity) {
+        if (!user_id || !product_id || !quantity || !total_price) {
             throw new Error("Something went wrong!")
         }
 
@@ -122,12 +124,14 @@ app.post("/createPurchases", async (req, res) => {
             id: generateId(),
             user_id,
             product_id,
-            quantity
+            quantity,
+            total_price
         }
 
         await connection.raw(`
                 INSERT TO labecommerce_purchases(id, user_id, product_id, quantity)
-                VALUES("${newPurchase.id}", ${newPurchase.user_id},${newPurchase.product_id}, ${newPurchase.quantity});
+                VALUES("${newPurchase.id}", ${newPurchase.user_id},${newPurchase.product_id}, 
+                ${newPurchase.quantity}, "${newPurchase.total_price}");
             `)
 
         res.status(200).send("successful purchase")

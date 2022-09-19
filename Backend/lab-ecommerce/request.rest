@@ -1,0 +1,24 @@
+// Não sei fazer as requisições pelo VsCode 
+//Vou deixar aqui o link da documentação do postman: https://documenter.getpostman.com/view/21006178/2s7YtMHwho
+
+POST http://localhost:3003/createUser
+Content-Type: application/json
+
+{
+    "name": "Lucas",
+    "email": "Lucas@hotmail.com",
+    "password": "mamao com acucar"
+}
+
+GET http://localhost:3003/getAllUsers
+
+POST http://localhost:3003/createProducts
+Content-Type: application/json
+
+{
+    "name": "Rádio",
+    "price": 400,
+    "image_url": "https://a-static.mlcdn.com.br/800x560/radio-retro-antigo-vintage-am-fm-bluetooth-qualidade-barato-ecooda/afastore/radioretro/e63abc942a4274e7fc07fbbaeac4bf82.jpg"
+}
+
+GET http://localhost:3003/getAllProducts
