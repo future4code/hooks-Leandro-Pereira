@@ -2,6 +2,9 @@ import { app } from '../../index'
 import { connection } from '../connection'
 import { v4 as generateId } from 'uuid'
 import {Users, Products, Purchases} from './types'
+import transporter from '../mailerTransporter'
+// import dotenv from "dotenv"
+// import nodemailer from 'nodemailer'
 
 
 // exercise 01
@@ -27,6 +30,14 @@ app.post('/createUser', async (req, res) => {
         INSERT INTO labecommerce_users (id, name, email, password)
         VALUES("${newUser.id}", "${newUser.name}", "${newUser.email}", "${newUser.password}");
     `)
+
+        const sendEmail = await transporter.sendMail({
+            from: process.env.NODEMAILER_USER,
+            to: "sandrapira_couto@hotmail.com",
+            subject: email,
+            text: "Testando 123, Testando",
+            html: `<p>Oi eu sou Tommy quer ser meu amiguinho?!</p>`
+        })
 
         res.status(200).send("New user created successfully!")
 

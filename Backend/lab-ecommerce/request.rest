@@ -6,9 +6,9 @@ POST http://localhost:3003/createUser
 Content-Type: application/json
 
 {
-    "name": "Lucas",
-    "email": "Lucas@hotmail.com",
-    "password": "mamao com acucar"
+    "name": "Sara",
+    "email": "Sara@hotmail.com",
+    "password": "cha com acucar"
 }
 ###
 GET http://localhost:3003/getAllUsers
