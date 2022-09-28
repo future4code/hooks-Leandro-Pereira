@@ -18,8 +18,8 @@ POST http://localhost:3003/products
 Content-Type: application/json
 
 {
-    "name": "teste1",
-    "price": 550
+    "name": "teste2",
+    "price": 50
 }
 
 ### Exercício 4 - Get products
@@ -30,9 +30,9 @@ POST http://localhost:3003/purchases
 Content-Type: application/json
 
 {
-    "userId": "103",
+    "userId": "101",
     "productId": "203",
-    "quantity": 4
+    "quantity": 2
 }
 
 ### Exercício 6 - Get user purchases

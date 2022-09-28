@@ -6,9 +6,9 @@
 
 export class Product {
     constructor(
-        public id: string,
-        public name: string,
-        public price: number
+        private id: string,
+        private name: string,
+        private price: number
     ) {
         this.id = id
         this.name = name
