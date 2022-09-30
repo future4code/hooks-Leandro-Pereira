@@ -1,34 +1,31 @@
-import { Request, Response } from "express"
-import connection from "../database/connection"
-import { TABLE_PRODUCTS } from "../database/tableNames"
-import { Product } from "../models/Product"
+import { Request, Response } from "express";
+import { Product } from "../models/Product";
+import { ProductDatabase } from "../database/ProductDatabase";
 
 export const createProduct = async (req: Request, res: Response) => {
-    let errorCode = 400
-    try {
-        const name = req.body.name
-        const price = req.body.price
+  let errorCode = 400;
+  try {
+    
+   const {name, price} = req.body
 
-        if (!name || !price) {
-            throw new Error("Body inválido.")
-        }
-
-        const newProduct = new Product(Date.now().toString(), name, price)
-
-        // const newProduct: Product = {
-        //     id: Date.now().toString(),
-        //     name,
-        //     price
-        // }
-
-        await connection(TABLE_PRODUCTS).insert({
-            id: newProduct.getId,
-            name: newProduct.getName,
-            price: newProduct.getPrice
-        })
-        
-        res.status(201).send({ message: "Produto criado", product: newProduct })
-    } catch (error) {
-        res.status(errorCode).send({ message: error.message })
+    if (!name || !price) {
+      throw new Error("Fill in the fields correctly");
     }
-}
+
+    // const newProduct: Product = {
+    //     id: Date.now().toString(),
+    //     name,
+    //     price
+    // }
+
+    const product = new Product(Date.now().toString(), name, price);
+
+    const productDatabase = new ProductDatabase();
+
+    await productDatabase.createProduct(product);
+
+    res.status(201).send({ message: "Created Product!", product: product });
+  } catch (error) {
+    res.status(errorCode).send({ message: error.message });
+  }
+};
