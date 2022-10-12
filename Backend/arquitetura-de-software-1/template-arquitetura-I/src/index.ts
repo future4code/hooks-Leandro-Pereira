@@ -1,13 +1,11 @@
 import { app } from "./app"
 import {UserController} from './controller/UserController'
-// import { createTask } from './endpoints/createTask'
+import { TaskController } from './controller/TaskController';
 
 const userController = new UserController()
 app.post('/user', userController.createUser)
 
-
-
-
-// app.post('/task', createTask)
+const taskController = new TaskController()
+app.post('/task', taskController.createTask)
 
 
