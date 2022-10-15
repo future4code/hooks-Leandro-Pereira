@@ -1,0 +1,23 @@
+GET http://localhost:3003/user
+
+###
+POST http://localhost:3003/user/create
+Content-Type: application/json
+
+{
+    "name": "teste1",
+    "email": "1email@email.com",
+    "password": "123432535"
+}
+
+###
+POST http://localhost:3003/movie/creates
+Content-Type: application/json
+
+{
+    "title": "The Lord of the Rings", 
+    "description": "Movie about the hobbit's journey to destroy Sauron's ring", 
+    "duration_in_minutes": 178, 
+    "year_of_release": 2002
+}
+
