@@ -1,0 +1,50 @@
+[
+	{
+		"id" : "product1",
+		"name" : "Televisão 4K",
+		"price" : 7500,
+		"image_url" : "https://i.imgur.com/5a0gRfs.jpg"
+	},
+	{
+		"id" : "product2",
+		"name" : "Notebook Acer",
+		"price" : 3200,
+		"image_url" : "https://i.imgur.com/iKm9KAx.jpg"
+	},
+	{
+		"id" : "product3",
+		"name" : "Calculadora",
+		"price" : 50,
+		"image_url" : "https://i.imgur.com/pwO7vAE.jpg"
+	},
+	{
+		"id" : "product4",
+		"name" : "Smartphone",
+		"price" : 1999,
+		"image_url" : "https://i.imgur.com/QeuzMtA.jpg"
+	},
+	{
+		"id" : "product5",
+		"name" : "Processador i5 10TH GEN",
+		"price" : 1200,
+		"image_url" : "https://i.imgur.com/DH1PXTE.jpg"
+	},
+	{
+		"id" : "product6",
+		"name" : "HD Externo 3TB",
+		"price" : 3500,
+		"image_url" : "https://i.imgur.com/DNINOJN.jpg"
+	},
+	{
+		"id" : "product7",
+		"name" : "Gift Card 12 Meses",
+		"price" : 300,
+		"image_url" : "https://i.imgur.com/3AWXSVE.jpg"
+	},
+    {
+		"id" : "product8",
+		"name" : "Cabo HDMI",
+		"price" : 67,
+		"image_url" : "https://i.imgur.com/k6NEzZC.jpg"
+	}
+]
