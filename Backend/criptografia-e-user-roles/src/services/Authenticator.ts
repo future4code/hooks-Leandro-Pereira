@@ -1,12 +1,19 @@
 import * as jwt from "jsonwebtoken";
 import { Unauthorized } from "../error/customError";
-import { AuthenticationData } from "../model/user";
+import { AuthenticationData, UserRole } from "../model/user";
 
 export class Authenticator {
-  public generateToken = ({ id }: AuthenticationData): string => {
-    const token = jwt.sign({ id }, process.env.JWT_KEY as string, {
-      expiresIn: "1h",
-    });
+  public generateToken = ({
+    id,
+    role: UserRole,
+  }: AuthenticationData): string => {
+    const token = jwt.sign(
+      { id, role: UserRole },
+      process.env.JWT_KEY as string,
+      {
+        expiresIn: "1h",
+      }
+    );
     return token;
   };
 
@@ -16,7 +23,9 @@ export class Authenticator {
         token,
         process.env.JWT_KEY as string
       ) as AuthenticationData;
-      return payload;
+
+      return {id: payload.id as string, role: payload.role as UserRole};
+
     } catch (error: any) {
       console.log(error.message);
       throw new Unauthorized();

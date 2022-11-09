@@ -3,18 +3,24 @@ import { UserBusiness } from "../business/UserBusiness";
 import { EditUserInputDTO, LoginInputDTO, UserInputDTO } from "../model/user";
 
 export class UserController {
+  private userBusiness: UserBusiness;
+  constructor() {
+    this.userBusiness = new UserBusiness();
+  }
+
   public signup = async (req: Request, res: Response) => {
     try {
-      const { name, nickname, email, password } = req.body;
+      const { name, nickname, email, password, role } = req.body;
 
       const input: UserInputDTO = {
         name,
         nickname,
         email,
         password,
+        role,
       };
-      const userBusiness = new UserBusiness();
-      const token = await userBusiness.signup(input);
+
+      const token = await this.userBusiness.signup(input);
 
       res.status(201).send({ message: "Usuário criado!", token });
     } catch (error: any) {
@@ -30,8 +36,8 @@ export class UserController {
         email,
         password,
       };
-      const userBusiness = new UserBusiness();
-      const token = await userBusiness.login(input);
+
+      const token = await this.userBusiness.login(input);
 
       res.status(200).send({ token });
     } catch (error: any) {
@@ -47,8 +53,7 @@ export class UserController {
         token: req.headers.authorization as string,
       };
 
-      const userBusiness = new UserBusiness();
-      await userBusiness.editUser(input);
+      await this.userBusiness.editUser(input);
 
       res.status(201).send({ message: "Usuário alterado!" });
     } catch (error: any) {

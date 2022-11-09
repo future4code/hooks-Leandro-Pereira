@@ -1,10 +1,10 @@
-import { compare } from "bcryptjs";
 import { UserDatabase } from "../data/UserDatabase";
 import {
   CustomError,
   InvalidEmail,
   InvalidName,
   InvalidPassword,
+  InvalidRole,
   UserNotFound,
 } from "../error/customError";
 import {
@@ -13,6 +13,7 @@ import {
   EditUserInputDTO,
   EditUserInput,
   LoginInputDTO,
+  UserRole,
 } from "../model/user";
 import { Authenticator } from "../services/Authenticator";
 import { Encryption } from "../services/Encryption";
@@ -23,14 +24,20 @@ const authenticator = new Authenticator();
 const encryption = new Encryption();
 
 export class UserBusiness {
-  public signup = async (input: UserInputDTO) => {
-    try {
-      const { name, nickname, email, password } = input;
+  private userDatabase: UserDatabase;
 
-      if (!name || !nickname || !email || !password) {
+  constructor() {
+    this.userDatabase = new UserDatabase();
+  }
+
+  public signup = async (input: UserInputDTO): Promise<string> => {
+    try {
+      const { name, nickname, email, password, role } = input;
+
+      if (!name || !nickname || !email || !password || !role) {
         throw new CustomError(
           400,
-          'Preencha os campos "name","nickname", "email" e "password"'
+          'Preencha os campos "name","nickname", "email" , "password" e "role".'
         );
       }
 
@@ -42,8 +49,12 @@ export class UserBusiness {
         throw new InvalidEmail();
       }
 
+      if (role !== "NORMAL" && role !== "ADMIN") {
+        throw new InvalidRole();
+      }
+
       const id: string = idGenerator.generateId();
-      const hashPassword = await encryption.hash(password);
+      const hashPassword: string = await encryption.hash(password);
 
       const user: user = {
         id,
@@ -51,12 +62,12 @@ export class UserBusiness {
         nickname,
         email,
         password: hashPassword,
+        role: UserRole[role],
       };
 
-      const userDatabase = new UserDatabase();
-      await userDatabase.insertUser(user);
+      await this.userDatabase.insertUser(user);
 
-      const token = authenticator.generateToken({ id });
+      const token = authenticator.generateToken({ id, role: UserRole[role] });
 
       return token;
     } catch (error: any) {
@@ -64,7 +75,7 @@ export class UserBusiness {
     }
   };
 
-  public login = async (input: LoginInputDTO) => {
+  public login = async (input: LoginInputDTO): Promise<string> => {
     try {
       const { email, password } = input;
 
@@ -76,19 +87,21 @@ export class UserBusiness {
         throw new InvalidEmail();
       }
 
-      const userDatabase = new UserDatabase();
-      const user = await userDatabase.findUserByEmail(email);
+      const user = await this.userDatabase.findUserByEmail(email);
       const comparePassword = await encryption.compare(password, user.password);
 
       if (!comparePassword) {
-        throw new InvalidPassword()
+        throw new InvalidPassword();
       }
 
       if (!user) {
         throw new UserNotFound();
       }
 
-      const token = authenticator.generateToken({ id: user.id });
+      const token = authenticator.generateToken({
+        id: user.id,
+        role: user.role,
+      });
 
       return token;
     } catch (error: any) {
@@ -96,7 +109,7 @@ export class UserBusiness {
     }
   };
 
-  public editUser = async (input: EditUserInputDTO) => {
+  public editUser = async (input: EditUserInputDTO): Promise<void> => {
     try {
       const { name, nickname, token } = input;
 
@@ -119,8 +132,7 @@ export class UserBusiness {
         nickname,
       };
 
-      const userDatabase = new UserDatabase();
-      await userDatabase.editUser(editUserInput);
+      await this.userDatabase.editUser(editUserInput);
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }
