@@ -5,6 +5,7 @@ import {
   InvalidName,
   InvalidPassword,
   InvalidRole,
+  InvalidUser,
   UserNotFound,
 } from "../error/customError";
 import {
@@ -34,6 +35,8 @@ export class UserBusiness {
     try {
       const { name, nickname, email, password, role } = input;
 
+      const userAlreadyExist = await this.userDatabase.findUserByEmail(email);
+
       if (!name || !nickname || !email || !password || !role) {
         throw new CustomError(
           400,
@@ -53,6 +56,10 @@ export class UserBusiness {
         throw new InvalidRole();
       }
 
+      if(userAlreadyExist){
+        throw new InvalidUser();
+      }
+      
       const id: string = idGenerator.generateId();
       const hashPassword: string = await encryption.hash(password);
 

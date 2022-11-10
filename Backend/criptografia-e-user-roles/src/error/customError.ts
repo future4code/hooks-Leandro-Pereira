@@ -39,3 +39,10 @@ export class Unauthorized extends CustomError {
     super(401, "Usuário não autorizado");
   }
 }
+
+export class InvalidUser extends CustomError {
+  constructor() {
+    super(400, "Usuário já existe");
+  }
+
+}
