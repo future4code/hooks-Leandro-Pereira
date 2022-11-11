@@ -22,3 +22,27 @@ export interface InputDto{
   email: string;
   password: string;
 }
+
+export interface LoginInputDTO{
+  email: string;
+  password: string;
+}
+
+export interface UpdateUserInputDTO {
+  id: string;
+  name: string;
+  email: string;
+  password: string;
+  token: string;
+}
+
+export interface UpdateUserInput{
+  id: string;
+  name: string;
+  email: string;
+  password: string;
+}
+
+export interface AuthenticationData{
+  id: string;
+}

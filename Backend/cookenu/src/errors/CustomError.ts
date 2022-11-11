@@ -21,3 +21,10 @@ export class InvalidEmail extends CustomError {
     super(400, "Email inválido")
   }
 }
+
+export class UserNotFound extends CustomError {
+  constructor() {
+    super(400, "Usuário não encontrado.")
+
+  }
+}
