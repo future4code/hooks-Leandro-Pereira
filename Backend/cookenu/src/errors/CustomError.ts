@@ -6,25 +6,36 @@ export class CustomError extends Error {
 
 export class InvalidName extends CustomError {
   constructor() {
-    super(400, "Nome inválido")
+    super(400, "Nome inválido");
   }
 }
 
 export class InvalidPassword extends CustomError {
   constructor() {
-    super(400, "Senha inválida")
+    super(400, "Senha inválida");
   }
 }
 
 export class InvalidEmail extends CustomError {
   constructor() {
-    super(400, "Email inválido")
+    super(400, "Email inválido");
+  }
+}
+
+export class InvalidToken extends CustomError {
+  constructor() {
+    super(400, "Token inválido.");
   }
 }
 
 export class UserNotFound extends CustomError {
   constructor() {
-    super(400, "Usuário não encontrado.")
+    super(400, "Usuário não encontrado.");
+  }
+}
 
+export class UserAlreadyExist extends CustomError {
+  constructor() {
+    super(400, "Usuário já existe.");
   }
 }

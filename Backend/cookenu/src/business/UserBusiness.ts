@@ -4,6 +4,7 @@ import {
   InvalidEmail,
   InvalidName,
   InvalidPassword,
+  InvalidToken,
   UserNotFound,
 } from "../errors/CustomError";
 import {
@@ -52,7 +53,7 @@ export class UserBusiness {
       }
 
       const id: string = IdGenerator.generateId();
-      const hashedPassword: string = await this.hashManager.hash(password)
+      const hashedPassword: string = await this.hashManager.hash(password);
 
       const newUser: user = {
         id,
@@ -84,19 +85,21 @@ export class UserBusiness {
 
       const user: user = await this.userdatabase.findUserByEmail(email);
 
-      const isValidPass = await this.hashManager.compare(password, user.password);
+      const isValidPass = await this.hashManager.compare(
+        password,
+        user.password
+      );
 
       if (!isValidPass) {
         throw new InvalidPassword();
       }
-      
+
       if (!user) {
         throw new UserNotFound();
       }
 
       const token = this.tokenGenerator.generateToken({ id: user.id });
       return token;
-
     } catch (error: any) {}
   };
 
@@ -123,4 +126,23 @@ export class UserBusiness {
       throw new CustomError(400, error.message);
     }
   };
+
+  public getUserLogged = async (token: string) => {
+    try {
+
+      if(!token){
+        throw new InvalidToken();
+      }
+
+      const tokenData = this.tokenGenerator.TokenData(token);
+      const user = await this.userdatabase.getUserLogged(tokenData.id);
+
+      return user;
+
+
+    } catch (error:any) {
+      throw new CustomError(401, error.message);
+    }
+  }
+
 }

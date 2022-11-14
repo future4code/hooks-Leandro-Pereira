@@ -1,5 +1,5 @@
 export type user = {
-  id:string;
+  id: string;
   name: string;
   email: string;
   password: string;
@@ -17,13 +17,13 @@ export interface createUser {
   password: string;
 }
 
-export interface InputDto{
+export interface InputDto {
   name: string;
   email: string;
   password: string;
 }
 
-export interface LoginInputDTO{
+export interface LoginInputDTO {
   email: string;
   password: string;
 }
@@ -36,13 +36,13 @@ export interface UpdateUserInputDTO {
   token: string;
 }
 
-export interface UpdateUserInput{
+export interface UpdateUserInput {
   id: string;
   name: string;
   email: string;
   password: string;
 }
 
-export interface AuthenticationData{
+export type AuthenticationData = {
   id: string;
-}
+};

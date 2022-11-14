@@ -33,4 +33,11 @@ export class UserDatabase extends BaseDatabase {
       throw new CustomError(400, error.message);
     }
   };
+
+  public getUserLogged = async (id: string) => {
+    const result = await UserDatabase.connection("Cookenu_recipes")
+      .select("id", "name", "email")
+      .where({ id });
+    return result[0];
+  };
 }

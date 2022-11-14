@@ -57,4 +57,26 @@ export class UserController {
       res.status(400).send(error.message);
     }
   };
+
+  public getUserLogged = async (req: Request, res: Response) => {
+    try {
+      const token = req.headers.authorization as string;
+
+      const user = await this.userBusiness.getUserLogged(token);
+
+      res.status(200).send({ message: "Usuário logado!", user });
+    } catch (error: any) {
+      res.status(400).send(error.message);
+    }
+  };
+
+  getUserById = async (req: Request, res: Response) => {
+    try{
+
+    }catch(error: any){
+      res.status(400).send(error.message);
+    }
+  }
+
+
 }
