@@ -1,9 +1,15 @@
+export enum UserRole {
+  ADMIN = "ADMIN",
+  NORMAL = "NORMAL",
+}
+
 export type user = {
   id: string;
   email: string;
   password: string;
   name: string;
   nickname: string;
+  role: UserRole;
 };
 
 export interface UserInputDTO {
@@ -11,6 +17,7 @@ export interface UserInputDTO {
   nickname: string;
   email: string;
   password: string;
+  role: string;
 }
 
 export interface LoginInputDTO {
@@ -32,4 +39,5 @@ export interface EditUserInput {
 
 export type AuthenticationData = {
   id: string;
+  role: UserRole;
 };

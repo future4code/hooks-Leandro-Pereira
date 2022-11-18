@@ -16,6 +16,12 @@ export class InvalidEmail extends CustomError {
   }
 }
 
+export class InvalidRole extends CustomError {
+  constructor() {
+    super(400, "Cargo inválido");
+  }
+}
+
 export class InvalidPassword extends CustomError {
   constructor() {
     super(400, "Senha inválida");
@@ -32,4 +38,11 @@ export class Unauthorized extends CustomError {
   constructor() {
     super(401, "Usuário não autorizado");
   }
+}
+
+export class InvalidUser extends CustomError {
+  constructor() {
+    super(400, "Usuário já existe");
+  }
+
 }
