@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { PurchaseBusiness } from "../business/PurchaseBusiness";
 
 export class PurchaseController {
   public getUser = async (req: Request, res: Response) => {

@@ -12,3 +12,9 @@ export class InvalidRequest extends CustomError{
         super(400, "fill in the fields correctly")
     }
 }
+
+export class InvalidName extends CustomError{
+    constructor(){
+        super(400, "InvalidName")
+    }
+}
