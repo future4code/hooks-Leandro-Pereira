@@ -8,7 +8,7 @@ export class StockController {
       const result = await stockBusiness.getStock();
       res.status(200).send({ message: result });
     } catch (error: any) {
-      res.status(error).send({ message: error.message });
+      res.status(400).send({ message: error.message });
     }
   };
 }
