@@ -16,7 +16,7 @@ const printNumbers2 = (n: number) => {
   }
 };
 
-console.log(printNumbers2(5))
+console.log(printNumbers(5))
 
 //exercise 02
 
@@ -57,5 +57,5 @@ export const printArray = (arr: number[], i: number = arr.length - 1) => {
 };
 
 // Exemplo de uso:
-const array = [1, 2, 3, 4];
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 printArray(array);
