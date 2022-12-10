@@ -5,39 +5,44 @@ import { Purchase } from "../models/purchase";
 export class PurchaseController {
   public getCustomerPurchases = async (req: Request, res: Response) => {
     try {
-        const { name } = req.params;
-        const result = await PurchaseBusiness.getCustomerPurchases(name);
-        res.status(200).send({ message: result });
-
+      const { name } = req.params;
+      const result = await PurchaseBusiness.getCustomerPurchases(name);
+      res.status(200).send({ message: result });
     } catch (error: any) {
-      res.status(400).send({message:error.message});
+      res.status(400).send({ message: error.message });
     }
   };
 
   public addPurchase = async (req: Request, res: Response) => {
     try {
-
-      const products:Purchase[] = req.body.products;
+      const products: Purchase[] = req.body.products;
 
       await PurchaseBusiness.addPurchase(products);
       res.status(200).send({ message: "Successfull purchase!" });
-      
-    } catch (error:any) {
-      res.status(400).send({ message: error.message});
+    } catch (error: any) {
+      res.status(400).send({ message: error.message });
     }
   };
 
-  public updateProduct = async (req:Request, res:Response) => {
+  public updateProduct = async (req: Request, res: Response) => {
     try {
+      const { idPurchase, qtyProduct } = req.body;
 
-      const {idPurchase, qtyProduct} = req.body
+      await PurchaseBusiness.updateProduct(idPurchase, qtyProduct);
+      res.status(200).send({ message: "Updated product" });
+    } catch (error: any) {
+      res.status(400).send({ message: error.message });
+    }
+  };
 
-      await PurchaseBusiness.updateProduct(idPurchase, qtyProduct)
-      res.status(200).send({message: "Updated product"})
-      
-    } catch (error:any) {
-      res.status(400).send({ message:error.message});
+  public deleteProduct = async (req: Request, res: Response) => {
+    try {
+      const { idPurchase } = req.params;
+
+      await PurchaseBusiness.deleteProduct(Number(idPurchase));
+      res.status(200).send({ message: "Deleted Product" });
+    } catch (error: any) {
+      res.status(404).send({ message: error.message });
     }
   };
 }
-

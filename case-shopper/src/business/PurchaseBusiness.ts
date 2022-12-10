@@ -35,11 +35,31 @@ export class PurchaseBusiness {
     }
   };
 
-  public static updateProduct = async () => {
+  public static updateProduct = async (
+    idPurchase: number,
+    qtyProduct: number
+  ) => {
     try {
+      const purchaseDatabase = new PurchaseDatabase();
 
-      
+      if (!idPurchase || !qtyProduct || qtyProduct === 0) {
+        throw new InvalidRequest();
+      }
+      await purchaseDatabase.updateProduct(idPurchase, qtyProduct);
+    } catch (error: any) {
+      throw new CustomError(400, error.message);
+    }
+  };
 
+  public static deleteProduct = async (idPurchase: number) => {
+    try {
+      const purchaseDatabase = new PurchaseDatabase();
+
+      if (!idPurchase) {
+        throw new InvalidRequest();
+      }
+
+      await purchaseDatabase.deleteProduct(idPurchase);
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }

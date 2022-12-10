@@ -66,5 +66,25 @@ export class PurchaseDatabase extends BaseDatabase {
     await PurchaseDatabase.connection("shopper_purchases")
       .where("id_purchase", idPurchase)
       .update({ qty_product: qtyProduct });
+  };
+
+  public async deleteProduct(idPurchase: number) {
+    const qtyProd = await PurchaseDatabase.connection("shopper_purchases")
+      .select("qty_product", "id_product")
+      .where("id_purchase", idPurchase);
+
+    const prodStock = await PurchaseDatabase.connection("shopper_products")
+      .select("qty_stock")
+      .where("id", qtyProd[0].id_product);
+
+    await PurchaseDatabase.connection("shopper_purchases")
+      .where("id_purchase", idPurchase)
+      .del();
+
+    await PurchaseDatabase.connection("shopper_products")
+      .where("id", qtyProd[0].id_product)
+      .update({
+        qty_stock: qtyProd[0].qty_product + prodStock[0].qty_stock,
+      });
   }
 }
