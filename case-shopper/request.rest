@@ -2,3 +2,30 @@ GET http://localhost:3000/stock/products
 
 ###
 GET http://localhost:3000/purchase/user-purchases/:name
+
+###
+POST http://localhost:3000/purchase/add-purchase
+Content-Type: application/json
+
+{
+    "id_product" : 16,
+    "name_product" : "AZEITE   EXTRA VIRGEM GALLO 500ML" ,
+    "qty_product" : 5,
+    "tot_price" : 100,
+    "date" : "2022/06/12",
+    "customer_name" : "juba"
+}
+
+###
+PUT http://localhost:3000/purchase/update-product
+Content-Type: application/json
+
+{
+    "id":"",
+    "qty_product":"",
+}
+
+###
+DELETE http://localhost:3000/purchase/delete-product/:id
+
+

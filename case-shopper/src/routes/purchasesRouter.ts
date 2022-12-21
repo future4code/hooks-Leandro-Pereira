@@ -9,7 +9,7 @@ purchaseRouter.get('/customer-purchase/:name', purchaseController.getCustomerPur
 
 purchaseRouter.post('/add-purchase', purchaseController.addPurchase);
 
-purchaseRouter.post('/update-product', purchaseController.updateProduct);
+purchaseRouter.put('/update-product', purchaseController.updateProduct);
 
-purchaseRouter.post('/delete-product', purchaseController.deleteProduct);
+purchaseRouter.delete('/delete-product', purchaseController.deleteProduct);
 
