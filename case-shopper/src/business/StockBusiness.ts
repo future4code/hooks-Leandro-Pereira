@@ -2,9 +2,7 @@ import { StockDatabase } from "../data/StockDatabase";
 import { InvalidRequest } from "../errors/CustomErrors";
 
 export class StockBusiness {
-  constructor(
-    
-  ){}
+  constructor() {}
   public getStock = async () => {
     try {
       const stockDatabase = new StockDatabase();

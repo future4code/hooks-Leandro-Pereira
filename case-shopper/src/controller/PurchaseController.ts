@@ -15,8 +15,7 @@ export class PurchaseController {
 
   public addPurchase = async (req: Request, res: Response) => {
     try {
-      const products: Purchase[] = req.body.products;
-
+      const products: Purchase[] = req.body;
       await PurchaseBusiness.addPurchase(products);
       res.status(200).send({ message: "Successfull purchase!" });
     } catch (error: any) {

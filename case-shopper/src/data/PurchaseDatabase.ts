@@ -15,9 +15,9 @@ export class PurchaseDatabase extends BaseDatabase {
   };
 
   public addPurchase = async (products: Purchase[]) => {
+    const id: string = IdGenerator.generateId();
     try {
-      const id: string = IdGenerator.generateId();
-
+     
       for (let i = 0; i < products.length; i++) {
         await PurchaseDatabase.connection("shopper_purchases").insert({
           id_purchase: id,
@@ -27,6 +27,7 @@ export class PurchaseDatabase extends BaseDatabase {
           tot_price: products[i].tot_price,
           date: products[i].date,
           customer_name: products[i].customer_name,
+          
         });
 
         await PurchaseDatabase.connection.raw(`UPDATE shopper_products 

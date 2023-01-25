@@ -29,6 +29,8 @@ export class PurchaseBusiness {
       if (products.length === 0) {
         throw new InvalidRequest();
       }
+
+
       await purchaseDatabase.addPurchase(products);
     } catch (error: any) {
       throw new CustomError(400, error.message);
