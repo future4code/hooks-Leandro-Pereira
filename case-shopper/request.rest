@@ -1,0 +1,17 @@
+GET http://localhost:3000/stock/products
+
+###
+POST http://localhost:3000/purchase/add-purchase
+Content-Type: application/json
+
+    {       "id_product" : 16,
+            "name_product" : "AZEITE EXTRA VIRGEM GALLO 500ML" ,
+            "qty_product" : 1,
+            "tot_price" : 55,
+            "date" : "2023/01/01",
+            "customer_name" : "Leandro"
+    }
+
+###
+GET http://localhost:3000/purchase/customer-purchase/Leandro
+
